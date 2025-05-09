@@ -27,9 +27,9 @@ export default function AboutPage() {
 
       </div>
 
-      <h2 className="text-3xl font-bold mb-4 text-blue-600">Hi, I'm Jean-Marie 👋</h2>
+      <h2 className="text-3xl font-bold mb-4 text-blue-600">Hi, I am Jean-Marie 👋</h2>
       <p className="text-gray-700 text-lg leading-relaxed mb-6">
-        I'm a full-stack developer with a passion for building clean, modern web applications using TypeScript, Next.js, and AI tools. My work blends functionality and aesthetics — whether it's a fitness app or a support system.
+        I am a full-stack developer with a passion for building clean, modern web applications using TypeScript, Next.js, and AI tools. My work blends functionality and aesthetics — whether it is a fitness app or a support system.
       </p>
 
       <h3 className="text-xl font-semibold mb-2 text-gray-800">Skills</h3>
@@ -47,7 +47,7 @@ export default function AboutPage() {
       <ul className="list-disc list-inside text-gray-700 space-y-1 text-left max-w-md mx-auto">
         <li>I built an AI-powered fitness tracker as my senior project (FitGenius)</li>
         <li>I love optimizing performance and UI/UX design</li>
-        <li>I'm curious about the connection between AI, trading, and astrology 🌙</li>
+        <li>I am curious about the connection between AI, trading, and astrology 🌙</li>
       </ul>
     </motion.section>
   );
