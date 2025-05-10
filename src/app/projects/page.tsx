@@ -14,11 +14,6 @@ const projects: Project[] = [
     link: 'https://github.com/yourusername/fitgenius',
   },
   {
-    title: 'Push-Up Counter',
-    description: 'A real-time push-up tracking app using OpenCV and MediaPipe for body detection.',
-    link: 'https://github.com/yourusername/pushup-counter',
-  },
-  {
     title: 'Personal Portfolio',
     description: 'This portfolio site — built with TypeScript, Next.js App Router, and Tailwind CSS.',
     link: 'https://github.com/yourusername/nextfolio',

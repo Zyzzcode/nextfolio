@@ -15,7 +15,7 @@ export default function Navbar() {
   return (
     <nav className="bg-white shadow-sm border-b sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-        <h1 className="text-xl font-bold text-blue-600">Nextfolio</h1>
+        <h1 className="text-xl font-bold text-blue-600">Portfolio</h1>
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-center">
           {navLinks.map((link) => {
           const isActive = pathname === link.href;

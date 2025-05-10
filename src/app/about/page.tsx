@@ -18,10 +18,10 @@ export default function AboutPage() {
       {/* Profile Image */}
       <div className="flex justify-center mb-6">
        <Image
-        src="/me.jpeg"
+        src="/car.jpeg"
         alt="Jean-Marie Mattar"
-        width={128}
-        height={128}
+        width={200}
+        height={200}
         className="rounded-full object-cover shadow-md mx-auto"
       />
 
@@ -29,7 +29,7 @@ export default function AboutPage() {
 
       <h2 className="text-3xl font-bold mb-4 text-blue-600">Hi, I am Jean-Marie 👋</h2>
       <p className="text-gray-700 text-lg leading-relaxed mb-6">
-        I am a full-stack developer with a passion for building clean, modern web applications using TypeScript, Next.js, and AI tools. My work blends functionality and aesthetics — whether it is a fitness app or a support system.
+        I am a full-stack developer with a passion for building clean, modern web applications using TypeScript, Next.js, and AI tools. My work blends functionality and aesthetics.
       </p>
 
       <h3 className="text-xl font-semibold mb-2 text-gray-800">Skills</h3>
@@ -38,9 +38,11 @@ export default function AboutPage() {
         <span className="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm">TypeScript</span>
         <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm">Tailwind CSS</span>
         <span className="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">Python</span>
-        <span className="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm">OpenCV</span>
+        <span className="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm">C#</span>
         <span className="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm">Flask</span>
-        <span className="bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm">Firebase</span>
+        <span className="bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm">JAVA</span>
+        <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm">C++</span>
+        <span className="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm">SQL</span>
       </div>
 
       <h3 className="text-xl font-semibold mb-2 text-gray-800">Fun Facts</h3>
