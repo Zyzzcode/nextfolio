@@ -11,12 +11,12 @@ const projects: Project[] = [
   {
     title: 'FitGenius',
     description: 'An AI-powered fitness and nutrition tracker built with Next.js, Flask, and OpenAI.',
-    link: 'https://github.com/yourusername/fitgenius',
+    link: 'https://github.com/Zyzzcode/fitgenius',
   },
   {
     title: 'Personal Portfolio',
     description: 'This portfolio site — built with TypeScript, Next.js App Router, and Tailwind CSS.',
-    link: 'https://github.com/yourusername/nextfolio',
+    link: 'https://github.com/Zyzzcode/nextfolio',
   },
 ];
 
