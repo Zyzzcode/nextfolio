@@ -24,16 +24,26 @@ export default function ContactPage() {
       });
 
       if (!res.ok) {
-        const body = await res.json().catch(() => ({}));
-        throw new Error(body?.error || `HTTP ${res.status}`);
+        // attempt to read a message, but stay fully typed
+        let errorMessage = `HTTP ${res.status}`;
+        try {
+          const body: unknown = await res.json();
+          if (body && typeof body === 'object' && 'error' in body) {
+            const msg = (body as { error?: string }).error;
+            if (typeof msg === 'string') errorMessage = msg;
+          }
+        } catch {
+          /* ignore JSON parse errors */
+        }
+        throw new Error(errorMessage);
       }
 
       setStatus('✅ Message sent successfully!');
       form.reset();
     } catch (err: unknown) {
-  const msg = err instanceof Error ? err.message : 'Unexpected error';
-  setStatus(`❌ Something went wrong. (${msg})`);
-}
+      const msg = err instanceof Error ? err.message : 'Unexpected error';
+      setStatus(`❌ Something went wrong. (${msg})`);
+    }
   };
 
   const baseField =
