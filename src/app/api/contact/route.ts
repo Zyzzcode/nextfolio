@@ -1,8 +1,10 @@
 import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
   try {
@@ -14,35 +16,33 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Missing fields' }, { status: 400 });
     }
 
-    const user = process.env.EMAIL_USER;
-    const pass = process.env.EMAIL_PASS;
-
-    if (!user || !pass) {
-      console.error('Missing EMAIL_USER or EMAIL_PASS');
+    const to = process.env.CONTACT_TO;
+    if (!process.env.RESEND_API_KEY || !to) {
+      console.error('Missing RESEND_API_KEY or CONTACT_TO');
       return NextResponse.json({ error: 'Server not configured' }, { status: 500 });
     }
 
-    const transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 465,
-      secure: true,
-      auth: { user, pass },
-    });
+    const subject = `Contact form message from ${name}`;
+    const html = `
+      <p><b>From:</b> ${name} &lt;${email}&gt;</p>
+      <p>${message.replace(/\n/g, '<br/>')}</p>
+    `;
 
-    // Optional, but helpful to catch auth/config issues early
-    await transporter.verify();
+    // Note: 'onboarding@resend.dev' works without domain verification.
+    const { error } = await resend.emails.send({
+  from: 'Portfolio <onboarding@resend.dev>',
+  to,
+  replyTo: email,   // ✅ correct
+  subject,
+  text: message,
+  html,
+});
 
-    await transporter.sendMail({
-      from: `"Portfolio Contact" <${user}>`,
-      to: user,
-      replyTo: email, // <-- let replies go to the sender
-      subject: `Contact form message from ${name}`,
-      text: message,
-      html: `
-        <p><b>From:</b> ${name} &lt;${email}&gt;</p>
-        <p>${message.replace(/\n/g, '<br/>')}</p>
-      `,
-    });
+
+    if (error) {
+      console.error('Resend error:', error);
+      return NextResponse.json({ error: 'Failed to send email' }, { status: 500 });
+    }
 
     return NextResponse.json({ success: true });
   } catch (err) {
