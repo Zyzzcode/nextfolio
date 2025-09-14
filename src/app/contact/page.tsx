@@ -30,9 +30,10 @@ export default function ContactPage() {
 
       setStatus('✅ Message sent successfully!');
       form.reset();
-    } catch (err: any) {
-      setStatus(`❌ Something went wrong. ${err?.message ? `(${err.message})` : ''}`);
-    }
+    } catch (err: unknown) {
+  const msg = err instanceof Error ? err.message : 'Unexpected error';
+  setStatus(`❌ Something went wrong. (${msg})`);
+}
   };
 
   const baseField =
